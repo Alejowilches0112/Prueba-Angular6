@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="card-body">
+    <form (submit)="addPayment($event)">
+      <div class="input-group">
+          <div>
+            <input type="number" name="cedula" [(ngModel)]="cedula" placeholder="cedula" class="form-control">
+          </div>
+          <div>
+            <input type="text" name="nombres" [(ngModel)]="nombres" placeholder="nombre" class="form-control">
+          </div>
+          <div>
+            <input type="text" name="apellidos" [(ngModel)]="apellidos" placeholder="apellido" class="form-control">
+          </div>
+          <div>
+            <input type="text" name="contrato" [(ngModel)]="contrato" placeholder="número de contrato" class="form-control">
+          </div>
+          <div>
+            <input type="number" name="salario" [(ngModel)]="salario" placeholder="salario" class="form-control">
+          </div>
+          <br>
+          <br>
+          <div>
+          <span class="input-group-addon">
+            <button type="submit" class="btn btn-primary">
+              Add employee
+            </button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<table class="table">
+  <thead>
+    <th> Contrato </th>
+    <th> Cédula </th>
+    <th> Nombres </th>
+    <th> Apellidos </th>
+    <th> Salario </th>
+    <th> Eliminar </th>
+    <th> Pagar </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payment of payments">
+      <td>
+        {{payment.contrato}}
+      </td>
+      <td>
+        {{payment.cedula}}
+      </td>
+      <td>
+        {{payment.nombres}}
+      </td>
+      <td>
+        {{payment.apellidos}}
+      </td>
+      <td>
+        {{payment.salario}}
+      </td>
+      <td>
+        <button type="submit" class="btn btn-danger" (click)="deletePayment(payment._id)">
+            <i class="fa fa-trash"></i>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="btnClick()" >
+            <i class="fa fa-usd"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-body">
+    <form (submit)="addSettlement($event)">
+      <div class="input-group">
+        <div>
+          <input type="text"name="cedula" [(ngModel)]="cedula" placeholder="cedula" class="form-control">
+        </div>
+          <div>
+            <input type="date" name="fecha_inicial" [(ngModel)]="fecha_inicial" placeholder="fecha_inicial" class="form-control">
+          </div>
+          <div>
+            <input type="date" name="fecha_final" [(ngModel)]="fecha_final" placeholder="fecha_final" class="form-control">
+          </div>
+          <div>
+            <input type="number" id="bonificacion"name="bonificacion" value="bonificacion" [(ngModel)]="bonificacion" placeholder="bonificacion" class="form-control">
+          </div>
+          <br>
+          <br>
+          <div>
+          <span class="input-group-addon">
+            <button type="submit" class="btn btn-primary">
+              Add settlement
+            </button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<table class="table">
+  <thead>
+    <th> Cédula </th>
+    <th> Fecha Inicial </th>
+    <th> Fecha Final </th>
+    <th> Bonificacion </th>
+    <th> Borrar </th>
+    <th> Exportar PDF </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let settlement of settlements">
+      <td>
+        {{settlement.cedula}}
+      </td>
+      <td>
+        {{settlement.fecha_inicial}}
+      </td>
+      <td>
+        {{settlement.fecha_final}}
+      </td>
+      <td>
+        {{settlement.bonificacion}}
+      </td>
+      <td>
+        <button type="submit" class="btn btn-danger" (click)="deleteSettlement(settlement._id)">
+            <i class="fa fa-trash"></i>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-info" (click)="btnClick()">
+            <i class="fa fa-file"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <button type="button" class="btn btn-primary" (click)="btnClick1()">
+      Empleados
+  </button>
